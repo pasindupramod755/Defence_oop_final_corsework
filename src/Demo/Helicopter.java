@@ -1,18 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Demo;
 
-/**
- *
- * @author Pasindu Bandara
- */
-public class Helicopter extends javax.swing.JFrame {
+public class Helicopter extends javax.swing.JFrame implements Contraller {
 
-    /**
-     * Creates new form Helicopter
-     */
     public Helicopter() {
         initComponents();
     }
