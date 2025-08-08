@@ -54,4 +54,10 @@ public class ControallerRoom implements Contraller {
             contrallerArray[i].sliderController(level);
         }
     }
+    
+    public void mainMessage(String sms){
+        for (int i = 0; i < nextIndex; i++) {
+            contrallerArray[i].mainMessage(sms);
+        }
+    }
 }

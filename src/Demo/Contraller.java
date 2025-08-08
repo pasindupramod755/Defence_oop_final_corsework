@@ -5,4 +5,6 @@ public interface Contraller {
     public void areaNotClean();
     public void privateMessage(String sms);
     public void sliderController(int level);
+    public void mainMessage(String sms);
+
 }

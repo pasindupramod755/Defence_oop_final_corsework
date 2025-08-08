@@ -1,28 +1,64 @@
 package Demo;
 
 public class Submarine extends javax.swing.JFrame implements Contraller {
+
     private ControallerRoom controallerRoom;
+
     public Submarine(ControallerRoom controallerRoom) {
         this.controallerRoom = controallerRoom;
         initComponents();
         setVisible(true);
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+        jButton5.setEnabled(false);
     }
+
     public void message(String sms) {
-        jTextArea1.append(sms+"\n");
+        jTextArea1.append(sms + "\n");
     }
-    public void areaClean(){
+
+    public void areaClean() {
         jTextField1.setText("Area is cleaned");
     }
-    public void areaNotClean(){
-       jTextField1.setText("Area is Not cleaned"); 
+
+    public void areaNotClean() {
+        jTextField1.setText("Area is Not cleaned");
     }
+
     public void privateMessage(String sms) {
         if (jCheckBox1.isSelected()) {
-            jTextArea1.append(sms+"\n");
+            jTextArea1.append(sms + "\n");
         }
     }
-    public void sliderController(int level){
-        
+
+    public void sliderController(int level) {
+        if (jCheckBox1.isSelected()) {
+            if (level > 30) {
+                jButton3.setEnabled(true);
+            } else {
+                jButton3.setEnabled(false);
+            }
+            if (level > 50) {
+                jButton2.setEnabled(true);
+            } else {
+                jButton2.setEnabled(false);
+            }
+            if (level > 70) {
+                jButton1.setEnabled(true);
+            } else {
+                jButton1.setEnabled(false);
+            }
+            if (level > 90) {
+                jButton5.setEnabled(true);
+            } else {
+                jButton5.setEnabled(false);
+            }
+        }
+    }
+
+    public void mainMessage(String sms) {
+
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -78,6 +114,11 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 55, -1, -1));
 
         jTextField3.setText("Type Message");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 316, 369, -1));
 
         jSlider1.setMajorTickSpacing(10);
@@ -96,6 +137,11 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 110, 148, -1));
 
         jButton4.setText("Send");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 316, 119, -1));
 
         jCheckBox1.setText("Position");
@@ -160,6 +206,17 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        controallerRoom.mainMessage("Submarine : " + jTextField3.getText() + "\n");
+        jTextField3.setText("");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        controallerRoom.mainMessage("Submarine : " + jTextField3.getText() + "\n");
+        jTextField3.setText("");
+
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -1,6 +1,7 @@
 package Demo;
 
 public class MainContraller extends javax.swing.JFrame implements Contraller {
+
     private ControallerRoom controallerRoom;
 
     public MainContraller(ControallerRoom controallerRoom) {
@@ -8,21 +9,31 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
         initComponents();
         setVisible(true);
     }
-    public void message(String sms){
-        
+
+    public void message(String sms) {
+
     }
-    public void areaClean(){
-        
+
+    public void areaClean() {
+
     }
-    public void areaNotClean(){
-        
+
+    public void areaNotClean() {
+
     }
+
     public void privateMessage(String sms) {
-        
+
     }
-    public void sliderController(int level){
-        
+
+    public void sliderController(int level) {
+
     }
+
+    public void mainMessage(String sms) {
+        jTextArea1.append(sms);
+        jTextArea2.setText(sms);
+   }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -116,6 +127,11 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
         getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(605, 6, 102, 34));
 
         jTextField4.setText("Type Your Message");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 244, 60));
 
         jCheckBox2.setText("Send Private");
@@ -141,6 +157,7 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
         jSlider1.setMinorTickSpacing(1);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
+        jSlider1.setValue(0);
         jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSlider1StateChanged(evt);
@@ -175,29 +192,38 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(jCheckBox2.isSelected()){
-            controallerRoom.privateMessage(jTextField4.getText());
-        }else{
-            controallerRoom.setMessage(jTextField4.getText());
+        if (jCheckBox2.isSelected()) {
+            controallerRoom.privateMessage("Main Controller :" + jTextField4.getText());
+        } else {
+            controallerRoom.setMessage("Main Controller :" + jTextField4.getText());
         }
-        
+        jTextField4.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if (jCheckBox1.isSelected()) {
             controallerRoom.areaClean();
-        }else{
-           controallerRoom.areaNotClean(); 
+        } else {
+            controallerRoom.areaNotClean();
         }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-       
+        
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
         controallerRoom.sliderController(jSlider1.getValue());
     }//GEN-LAST:event_jSlider1StateChanged
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        if (jCheckBox2.isSelected()) {
+            controallerRoom.privateMessage("Main Controller :" + jTextField4.getText());
+        } else {
+            controallerRoom.setMessage("Main Controller :" + jTextField4.getText());
+        }
+        jTextField4.setText("");
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

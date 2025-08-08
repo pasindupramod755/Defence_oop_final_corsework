@@ -17,6 +17,5 @@ public class Demo {
         cr.addDefence(new MainContraller(cr));
         cr.addDefence(new Tank(cr));
         cr.addDefence(new Submarine(cr));
-
     }
 }
