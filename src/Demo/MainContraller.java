@@ -11,6 +11,18 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
     public void message(String sms){
         
     }
+    public void areaClean(){
+        
+    }
+    public void areaNotClean(){
+        
+    }
+    public void privateMessage(String sms) {
+        
+    }
+    public void sliderController(int level){
+        
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -96,12 +108,22 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
 
         jCheckBox1.setBackground(new java.awt.Color(51, 255, 51));
         jCheckBox1.setText("Area Clean");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(605, 6, 102, 34));
 
         jTextField4.setText("Type Your Message");
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 244, 60));
 
         jCheckBox2.setText("Send Private");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 118, 20));
 
         jButton2.setText("Send");
@@ -119,6 +141,11 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
         jSlider1.setMinorTickSpacing(1);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
+        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider1StateChanged(evt);
+            }
+        });
         getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 370, 35));
 
         jTextArea1.setColumns(20);
@@ -148,9 +175,29 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        controallerRoom.setMessage(jTextField4.getText());
+        if(jCheckBox2.isSelected()){
+            controallerRoom.privateMessage(jTextField4.getText());
+        }else{
+            controallerRoom.setMessage(jTextField4.getText());
+        }
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        if (jCheckBox1.isSelected()) {
+            controallerRoom.areaClean();
+        }else{
+           controallerRoom.areaNotClean(); 
+        }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+       
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+        controallerRoom.sliderController(jSlider1.getValue());
+    }//GEN-LAST:event_jSlider1StateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

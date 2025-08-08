@@ -9,6 +9,7 @@ package Demo;
  * @author Pasindu Bandara
  */
 public class ControallerRoom implements Contraller {
+
     private Contraller[] contrallerArray = new Contraller[20];
     private int nextIndex;
     private String sms;
@@ -18,14 +19,39 @@ public class ControallerRoom implements Contraller {
     }
 
     public void message(String sms) {
-        if(sms != ""){
-         this.sms = sms;
-         setMessage(sms);
+        if (sms != "") {
+            this.sms = sms;
+            setMessage(sms);
         }
     }
-    public void setMessage(String sms){
+
+    public void setMessage(String sms) {
         for (int i = 0; i < nextIndex; i++) {
             contrallerArray[i].message(sms);
+        }
+    }
+
+    public void areaClean() {
+        for (int i = 0; i < nextIndex; i++) {
+            contrallerArray[i].areaClean();
+        }
+    }
+
+    public void areaNotClean() {
+        for (int i = 0; i < nextIndex; i++) {
+            contrallerArray[i].areaNotClean();
+        }
+    }
+
+    public void privateMessage(String sms) {
+        for (int i = 0; i < nextIndex; i++) {
+            contrallerArray[i].privateMessage(sms);
+        }
+    }
+    
+    public void sliderController(int level){
+        for (int i = 0; i < nextIndex; i++) {
+            contrallerArray[i].sliderController(level);
         }
     }
 }

@@ -1,16 +1,39 @@
 package Demo;
 
 public class Helicopter extends javax.swing.JFrame implements Contraller {
+
     private ControallerRoom controallerRoom;
-    
+
     public Helicopter(ControallerRoom controallerRoom) {
         this.controallerRoom = controallerRoom;
         initComponents();
         setVisible(true);
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+
     }
 
     public void message(String sms) {
-        jTextArea1.append(sms+"\n");
+        jTextArea1.append(sms + "\n");
+    }
+
+    public void areaClean() {
+        jTextField1.setText("Area is cleaned");
+    }
+
+    public void areaNotClean() {
+        jTextField1.setText("Area is Not cleaned");
+    }
+
+    public void privateMessage(String sms) {
+        if (jCheckBox1.isSelected()) {
+            jTextArea1.append(sms + "\n");
+        }
+    }
+
+    public void sliderController(int level) {
+        
     }
 
     /**
@@ -46,7 +69,7 @@ public class Helicopter extends javax.swing.JFrame implements Contraller {
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("Area is Not Cleaned");
 
         jButton1.setText("Laster Oparation");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

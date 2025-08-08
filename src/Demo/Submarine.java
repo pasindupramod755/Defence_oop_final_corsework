@@ -7,7 +7,21 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         initComponents();
         setVisible(true);
     }
-    public void message(String sms){
+    public void message(String sms) {
+        jTextArea1.append(sms+"\n");
+    }
+    public void areaClean(){
+        jTextField1.setText("Area is cleaned");
+    }
+    public void areaNotClean(){
+       jTextField1.setText("Area is Not cleaned"); 
+    }
+    public void privateMessage(String sms) {
+        if (jCheckBox1.isSelected()) {
+            jTextArea1.append(sms+"\n");
+        }
+    }
+    public void sliderController(int level){
         
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -85,6 +99,11 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 316, 119, -1));
 
         jCheckBox1.setText("Position");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(533, 114, 97, -1));
 
         jTextField1.setText("jTextField1");
@@ -137,6 +156,10 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

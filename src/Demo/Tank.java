@@ -11,6 +11,20 @@ public class Tank extends javax.swing.JFrame implements Contraller {
     public void message(String sms){
         jTextArea1.append(sms+"\n");
     }
+    public void areaClean(){
+        jTextField1.setText("Area is cleaned");
+    }
+    public void areaNotClean(){
+       jTextField1.setText("Area is Not cleaned"); 
+    }
+    public void privateMessage(String sms) {
+        if (jCheckBox1.isSelected()) {
+            jTextArea1.append(sms+"\n");
+        }
+    }
+    public void sliderController(int level){
+        
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
