@@ -6,5 +6,6 @@ public interface Contraller {
     public void privateMessage(String sms);
     public void sliderController(int level);
     public void mainMessage(String sms);
+    public void soldierCount(int soldier);
 
 }

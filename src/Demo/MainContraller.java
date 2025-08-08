@@ -1,5 +1,7 @@
 package Demo;
 
+import javax.swing.JOptionPane;
+
 public class MainContraller extends javax.swing.JFrame implements Contraller {
 
     private ControallerRoom controallerRoom;
@@ -33,7 +35,11 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
     public void mainMessage(String sms) {
         jTextArea1.append(sms);
         jTextArea2.setText(sms);
-   }
+    }
+
+    public void soldierCount(int soldier) {
+        
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -87,7 +93,7 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
                     .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                     .addComponent(jTextField2)
                     .addComponent(jTextField3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,6 +184,11 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 259, 330, 98));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Defence", "Helicopter", "Tank", "Submarine" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, -1));
 
         pack();
@@ -192,12 +203,17 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (jCheckBox2.isSelected()) {
-            controallerRoom.privateMessage("Main Controller :" + jTextField4.getText());
+        if (!jTextField4.getText().equals("")) {
+            if (jCheckBox2.isSelected()) {
+                controallerRoom.privateMessage("Main Controller :" + jTextField4.getText());
+            } else {
+                controallerRoom.setMessage("Main Controller :" + jTextField4.getText());
+            }
+            jTextField4.setText("");
         } else {
-            controallerRoom.setMessage("Main Controller :" + jTextField4.getText());
+            JOptionPane.showMessageDialog(null, "input Your Message", "Error", JOptionPane.ERROR_MESSAGE);
+
         }
-        jTextField4.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -209,7 +225,7 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        
+
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
@@ -217,13 +233,23 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
     }//GEN-LAST:event_jSlider1StateChanged
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        if (jCheckBox2.isSelected()) {
-            controallerRoom.privateMessage("Main Controller :" + jTextField4.getText());
+        if (!jTextField4.getText().equals("")) {
+            if (jCheckBox2.isSelected()) {
+                controallerRoom.privateMessage("Main Controller :" + jTextField4.getText());
+            } else {
+                controallerRoom.setMessage("Main Controller :" + jTextField4.getText());
+            }
+            jTextField4.setText("");
         } else {
-            controallerRoom.setMessage("Main Controller :" + jTextField4.getText());
+            JOptionPane.showMessageDialog(null, "input Your Message", "Error", JOptionPane.ERROR_MESSAGE);
+
         }
-        jTextField4.setText("");
+
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -1,5 +1,8 @@
 package Demo;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 public class Submarine extends javax.swing.JFrame implements Contraller {
 
     private ControallerRoom controallerRoom;
@@ -20,10 +23,15 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
 
     public void areaClean() {
         jTextField1.setText("Area is cleaned");
+        jTextField1.setForeground(Color.black);
+        jTextField1.setBackground(Color.green);
     }
 
     public void areaNotClean() {
         jTextField1.setText("Area is Not cleaned");
+        jTextField1.setForeground(Color.white);
+        jTextField1.setBackground(Color.red);
+
     }
 
     public void privateMessage(String sms) {
@@ -59,6 +67,10 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
 
     public void mainMessage(String sms) {
 
+    }
+    
+    public void soldierCount(int soldier){
+        
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -152,8 +164,13 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         });
         getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(533, 114, 97, -1));
 
-        jTextField1.setText("jTextField1");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 330, 40));
+        jTextField1.setEditable(false);
+        jTextField1.setBackground(new java.awt.Color(255, 0, 51));
+        jTextField1.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.setText("Area is Not cleaned");
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 260, 40));
         getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 52, -1, -1));
 
         jButton1.setText("Toahawk Missile");
@@ -208,13 +225,21 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        controallerRoom.mainMessage("Submarine : " + jTextField3.getText() + "\n");
-        jTextField3.setText("");
+        if (!jTextField3.getText().equals("")) {
+            controallerRoom.mainMessage("Submarine : " + jTextField3.getText() + "\n");
+            jTextField3.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "input Your Message", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        controallerRoom.mainMessage("Submarine : " + jTextField3.getText() + "\n");
-        jTextField3.setText("");
+        if (!jTextField3.getText().equals("")) {
+            controallerRoom.mainMessage("Submarine : " + jTextField3.getText() + "\n");
+            jTextField3.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "input Your Message", "Error", JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_jTextField3ActionPerformed
 

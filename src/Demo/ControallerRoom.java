@@ -48,16 +48,22 @@ public class ControallerRoom implements Contraller {
             contrallerArray[i].privateMessage(sms);
         }
     }
-    
-    public void sliderController(int level){
+
+    public void sliderController(int level) {
         for (int i = 0; i < nextIndex; i++) {
             contrallerArray[i].sliderController(level);
         }
     }
-    
-    public void mainMessage(String sms){
+
+    public void mainMessage(String sms) {
         for (int i = 0; i < nextIndex; i++) {
             contrallerArray[i].mainMessage(sms);
+        }
+    }
+
+    public void soldierCount(int soldier) {
+        for (int i = 0; i < nextIndex; i++) {
+            contrallerArray[i].soldierCount(soldier);
         }
     }
 }

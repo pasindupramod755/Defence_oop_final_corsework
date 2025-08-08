@@ -1,5 +1,8 @@
 package Demo;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 public class Tank extends javax.swing.JFrame implements Contraller {
 
     private ControallerRoom controallerRoom;
@@ -21,10 +24,15 @@ public class Tank extends javax.swing.JFrame implements Contraller {
 
     public void areaClean() {
         jTextField1.setText("Area is cleaned");
+        jTextField1.setForeground(Color.black);
+        jTextField1.setBackground(Color.green);
     }
 
     public void areaNotClean() {
         jTextField1.setText("Area is Not cleaned");
+        jTextField1.setForeground(Color.white);
+        jTextField1.setBackground(Color.red);
+
     }
 
     public void privateMessage(String sms) {
@@ -60,6 +68,10 @@ public class Tank extends javax.swing.JFrame implements Contraller {
 
     public void mainMessage(String sms) {
 
+    }
+    
+    public void soldierCount(int soldier){
+        
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -113,7 +125,17 @@ public class Tank extends javax.swing.JFrame implements Contraller {
             }
         });
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setEditable(false);
+        jTextField1.setBackground(new java.awt.Color(255, 0, 0));
+        jTextField1.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.setText("Area is Not cleaned");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Radar Oparation");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +169,7 @@ public class Tank extends javax.swing.JFrame implements Contraller {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,14 +268,26 @@ public class Tank extends javax.swing.JFrame implements Contraller {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        controallerRoom.mainMessage("Tank : " + jTextField3.getText() + "\n");
-        jTextField3.setText("");
+        if (!jTextField3.getText().equals("")) {
+            controallerRoom.mainMessage("Tank : " + jTextField3.getText() + "\n");
+            jTextField3.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "input Your Message", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        controallerRoom.mainMessage("Tank : " + jTextField3.getText() + "\n");
-        jTextField3.setText("");
+        if (!jTextField3.getText().equals("")) {
+            controallerRoom.mainMessage("Tank : " + jTextField3.getText() + "\n");
+            jTextField3.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "input Your Message", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
