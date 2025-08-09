@@ -77,6 +77,7 @@ public class Tank extends javax.swing.JFrame implements Contraller {
     public void buttonMessage(String massage) {
 
     }
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -96,6 +97,7 @@ public class Tank extends javax.swing.JFrame implements Contraller {
         jLabel2 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -105,7 +107,7 @@ public class Tank extends javax.swing.JFrame implements Contraller {
                 jTextField2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(758, 52, 71, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 71, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -126,7 +128,7 @@ public class Tank extends javax.swing.JFrame implements Contraller {
         jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
-        getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(758, 80, 71, 290));
+        getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 71, 290));
 
         jButton4.setBackground(new java.awt.Color(0, 153, 255));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -151,7 +153,7 @@ public class Tank extends javax.swing.JFrame implements Contraller {
             }
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 260, 40));
-        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 52, 106, -1));
+        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 106, -1));
 
         jButton1.setText("Radar Oparation");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +162,7 @@ public class Tank extends javax.swing.JFrame implements Contraller {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 150, -1));
-        getContentPane().add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 80, 106, -1));
+        getContentPane().add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 106, -1));
 
         jButton2.setText("Missile Oparater");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +173,7 @@ public class Tank extends javax.swing.JFrame implements Contraller {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 150, -1));
 
         jLabel1.setText("Ammo");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 50, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 50, 20));
 
         jButton3.setText("Shoot");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -181,8 +183,8 @@ public class Tank extends javax.swing.JFrame implements Contraller {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, -1));
 
-        jLabel2.setText("Soldiers");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 120, 10));
+        jLabel2.setText("Fule");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 40, 10));
 
         jButton5.setText("Rotarte Shooting");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +195,11 @@ public class Tank extends javax.swing.JFrame implements Contraller {
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 110, 148, -1));
 
         jCheckBox1.setText("Position");
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(533, 114, 166, -1));
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 166, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pasindu Bandara\\Desktop\\final project\\FinalProject\\tank.png")); // NOI18N
+        jLabel3.setText("1");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-250, -220, 1110, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -249,6 +255,7 @@ public class Tank extends javax.swing.JFrame implements Contraller {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSpinner jSpinner1;

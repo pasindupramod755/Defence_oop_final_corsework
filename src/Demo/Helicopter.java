@@ -70,6 +70,8 @@ public class Helicopter extends javax.swing.JFrame implements Contraller {
     public void buttonMessage(String massage){
         
     }
+    
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -98,7 +100,7 @@ public class Helicopter extends javax.swing.JFrame implements Contraller {
         jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
-        getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 80, 71, 290));
+        getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, 71, 290));
 
         jLabel3.setBackground(new java.awt.Color(255, 51, 51));
         jLabel3.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
@@ -136,7 +138,7 @@ public class Helicopter extends javax.swing.JFrame implements Contraller {
                 jTextField2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 52, 71, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 50, 71, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -168,8 +170,8 @@ public class Helicopter extends javax.swing.JFrame implements Contraller {
         jLabel1.setText("Ammo");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, -1, -1));
 
-        jLabel2.setText("Soldiers");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 55, -1, -1));
+        jLabel2.setText("Fule");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 55, 50, -1));
 
         jCheckBox1.setText("Position");
         getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 122, -1));

@@ -60,8 +60,6 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
         jComboBox2 = new javax.swing.JComboBox<>();
         jTextField3 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -84,24 +82,23 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
                 jCheckBox1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 6, 130, 34));
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 130, 34));
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 244, 60));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 244, 60));
 
         jCheckBox2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox2.setText("Send Private");
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 118, 20));
+        getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 118, 20));
 
         jButton2.setText("Send");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +106,7 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 244, 30));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 244, 30));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,14 +131,14 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 330, 110));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 280, 110));
 
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 330, 110));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 290, 110));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Defence", "Helicopter", "Tank", "Submarine" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -156,34 +153,28 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
                 jTextField3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 100, 20));
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 100, 20));
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 100, 20));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 100, -1));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Soldier Count");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 100, 20));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 100, 20));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fule Amount");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 100, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 100, 20));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Ammo Amount");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 100, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 100, 20));
 
         jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pasindu Bandara\\Desktop\\final project\\FinalProject\\controll Room.png")); // NOI18N
         jLabel5.setText("1");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-480, -120, 1240, 520));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-480, -120, 1210, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -255,7 +246,6 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -265,7 +255,6 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
     private javax.swing.JSlider jSlider1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
