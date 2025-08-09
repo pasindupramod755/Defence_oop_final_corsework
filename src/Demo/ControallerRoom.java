@@ -66,4 +66,10 @@ public class ControallerRoom implements Contraller {
             contrallerArray[i].soldierCount(soldier);
         }
     }
+    
+    public void buttonMessage(String massage){
+        for (int i = 0; i < nextIndex; i++) {
+            contrallerArray[i].buttonMessage(massage);
+        }
+    }
 }

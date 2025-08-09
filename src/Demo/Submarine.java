@@ -1,11 +1,15 @@
 package Demo;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Submarine extends javax.swing.JFrame implements Contraller {
 
     private ControallerRoom controallerRoom;
+    private int oxegenLevel = 100;
+        private int energyLevel = 100;
 
     public Submarine(ControallerRoom controallerRoom) {
         this.controallerRoom = controallerRoom;
@@ -15,6 +19,70 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         jButton2.setEnabled(false);
         jButton3.setEnabled(false);
         jButton5.setEnabled(false);
+        oxygen();
+        energy();
+    }
+
+    public void oxygen() {
+        new Thread(() -> {
+            while (true) {
+                jSlider2.setValue(oxegenLevel--);
+                jTextField2.setText(oxegenLevel+"%");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Submarine.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if (oxegenLevel == 0) {
+//             JOptionPane.showMessageDialog(null, "Submarine has Not avalbel Oxegen", "Error", JOptionPane.ERROR_MESSAGE);
+                    int choice = JOptionPane.showConfirmDialog(
+                            null,
+                            "Submarine has no oxygen left!\nDo you want to refill?",
+                            "Oxygen Depleted",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.WARNING_MESSAGE
+                    );
+                    if (choice == JOptionPane.YES_OPTION) {
+                        oxegenLevel = 100;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Submarine has Left 😐❌", "Left", JOptionPane.ERROR_MESSAGE);
+                        dispose();
+                    }
+                }
+            }
+        }).start();
+
+    }
+    
+    public void energy() {
+        new Thread(() -> {
+            while (true) {
+                jSlider1.setValue(energyLevel--);
+                jTextField4.setText(energyLevel+"%");
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Submarine.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if (energyLevel == 0) {
+//             JOptionPane.showMessageDialog(null, "Submarine has Not avalbel Oxegen", "Error", JOptionPane.ERROR_MESSAGE);
+                    int choice = JOptionPane.showConfirmDialog(
+                            null,
+                            "Submarine has no Energy left!\nDo you want to refill?",
+                            "Energy Depleted",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.WARNING_MESSAGE
+                    );
+                    if (choice == JOptionPane.YES_OPTION) {
+                        energyLevel = 100;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Submarine has Left 😐❌", "Left", JOptionPane.ERROR_MESSAGE);
+                        dispose();
+                    }
+                }
+            }
+        }).start();
+
     }
 
     public void message(String sms) {
@@ -68,9 +136,13 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
     public void mainMessage(String sms) {
 
     }
-    
-    public void soldierCount(int soldier){
-        
+
+    public void soldierCount(int soldier) {
+
+    }
+
+    public void buttonMessage(String massage) {
+
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -101,8 +173,16 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         getContentPane().add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 80, -1, -1));
 
         jButton2.setText("Sonar Oparater");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 150, -1));
 
+        jTextField2.setEditable(false);
+        jTextField2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -114,18 +194,23 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, -1, -1));
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 144, 506, 154));
 
         jButton3.setText("Shoot");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, -1));
 
         jLabel2.setText("Soldiers");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 55, -1, -1));
 
-        jTextField3.setText("Type Message");
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -148,6 +233,9 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 110, 148, -1));
 
+        jButton4.setBackground(new java.awt.Color(0, 153, 255));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Send");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,6 +274,7 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         jSlider2.setOrientation(javax.swing.JSlider.VERTICAL);
         jSlider2.setPaintLabels(true);
         jSlider2.setPaintTicks(true);
+        jSlider2.setValue(100);
         getContentPane().add(jSlider2, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 80, 71, 290));
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -209,11 +298,11 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        controallerRoom.buttonMessage("Submarine Trident-2 Missile" + "\n");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        controallerRoom.buttonMessage("Submarine Toahawk Missile" + "\n");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
@@ -242,6 +331,14 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         }
 
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        controallerRoom.buttonMessage("Submarine Shoot" + "\n");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        controallerRoom.buttonMessage("Submarine Sonar Oparater" + "\n");
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

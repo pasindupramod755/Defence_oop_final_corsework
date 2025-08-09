@@ -7,5 +7,6 @@ public interface Contraller {
     public void sliderController(int level);
     public void mainMessage(String sms);
     public void soldierCount(int soldier);
+    public void buttonMessage(String massage);
 
 }
