@@ -9,7 +9,13 @@ package Demo;
  * @author Pasindu Bandara
  */
 public class Demo {
+
     public static void main(String[] args) {
         System.out.println("Final CorseWork");
+        ControallerRoom cr = new ControallerRoom();
+        cr.addDefence(new Helicopter(cr));
+        cr.addDefence(new MainContraller(cr));
+        cr.addDefence(new Tank(cr));
+        cr.addDefence(new Submarine(cr));
     }
 }
