@@ -34,13 +34,14 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
 
     public void mainMessage(String sms) {
         jTextArea1.append(sms);
+
+    }
+
+    public void fuleCount(int soldier) {
         
     }
 
-    public void soldierCount(int soldier) {
-        
-    }
-    public void buttonMessage(String massage){
+    public void buttonMessage(String massage) {
         jTextArea2.append(massage);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -148,6 +149,7 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
         });
         getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, -1));
 
+        jTextField3.setEditable(false);
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -155,6 +157,7 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
         });
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 100, 20));
 
+        jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -180,7 +183,22 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:0-
+        switch (jComboBox2.getSelectedIndex()) {
+            case 0:
+                break;
+            case 1:
+                jTextField3.setText(""+controallerRoom.getHelicopterAmmo());
+                jTextField2.setText(""+controallerRoom.getHelicopterFule());
+                break;
+            case 2:
+                jTextField3.setText(""+controallerRoom.getTankAmmo());
+                jTextField2.setText(""+controallerRoom.getTankFule());
+                break;
+            default:
+                jTextField3.setText(""+controallerRoom.getSubmarineAmmo());
+                jTextField2.setText(""+controallerRoom.getSubmarineFule());
+                break;
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

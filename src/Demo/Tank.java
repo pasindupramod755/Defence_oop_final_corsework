@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 public class Tank extends javax.swing.JFrame implements Contraller {
 
     private ControallerRoom controallerRoom;
+    private int energyLevel = 100;
 
     public Tank(ControallerRoom controallerRoom) {
         this.controallerRoom = controallerRoom;
@@ -15,7 +16,7 @@ public class Tank extends javax.swing.JFrame implements Contraller {
         jButton2.setEnabled(false);
         jButton3.setEnabled(false);
         jButton5.setEnabled(false);
-
+        energy();
     }
 
     public void message(String sms) {
@@ -70,11 +71,41 @@ public class Tank extends javax.swing.JFrame implements Contraller {
 
     }
 
-    public void soldierCount(int soldier) {
+    public void fuleCount(int soldier) {
 
     }
 
     public void buttonMessage(String massage) {
+
+    }
+
+    public void energy() {
+        new Thread(() -> {
+            while (true) {
+                jSlider1.setValue(energyLevel--);
+                jTextField2.setText(energyLevel + "%");
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException ex) {
+                }
+                if (energyLevel == 0) {
+//             JOptionPane.showMessageDialog(null, "Submarine has Not avalbel Oxegen", "Error", JOptionPane.ERROR_MESSAGE);
+                    int choice = JOptionPane.showConfirmDialog(
+                            null,
+                            "Helicopter has no Energy left!\nDo you want to refill?",
+                            "Energy Depleted",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.WARNING_MESSAGE
+                    );
+                    if (choice == JOptionPane.YES_OPTION) {
+                        energyLevel = 100;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Helecopter has Left 😐❌", "Left", JOptionPane.ERROR_MESSAGE);
+                        dispose();
+                    }
+                }
+            }
+        }).start();
 
     }
 
@@ -107,7 +138,7 @@ public class Tank extends javax.swing.JFrame implements Contraller {
                 jTextField2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 71, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 71, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -128,7 +159,8 @@ public class Tank extends javax.swing.JFrame implements Contraller {
         jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
-        getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 71, 290));
+        jSlider1.setValue(100);
+        getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, 71, 290));
 
         jButton4.setBackground(new java.awt.Color(0, 153, 255));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -153,6 +185,12 @@ public class Tank extends javax.swing.JFrame implements Contraller {
             }
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 260, 40));
+
+        jSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinner1StateChanged(evt);
+            }
+        });
         getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 106, -1));
 
         jButton1.setText("Radar Oparation");
@@ -162,6 +200,12 @@ public class Tank extends javax.swing.JFrame implements Contraller {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 150, -1));
+
+        jSpinner2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinner2StateChanged(evt);
+            }
+        });
         getContentPane().add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 106, -1));
 
         jButton2.setText("Missile Oparater");
@@ -184,7 +228,7 @@ public class Tank extends javax.swing.JFrame implements Contraller {
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, -1));
 
         jLabel2.setText("Fule");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 40, 10));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 40, 10));
 
         jButton5.setText("Rotarte Shooting");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -209,11 +253,11 @@ public class Tank extends javax.swing.JFrame implements Contraller {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        controallerRoom.buttonMessage("Tank Radar Oparation"+"\n");
+        controallerRoom.buttonMessage("Tank Radar Oparation" + "\n");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        controallerRoom.buttonMessage("Tank Rotarte Shooting"+"\n");
+        controallerRoom.buttonMessage("Tank Rotarte Shooting" + "\n");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -239,12 +283,20 @@ public class Tank extends javax.swing.JFrame implements Contraller {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        controallerRoom.buttonMessage("Tank Shoot"+"\n");
+        controallerRoom.buttonMessage("Tank Shoot" + "\n");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        controallerRoom.buttonMessage("Tank Missile Oparater"+"\n");
+        controallerRoom.buttonMessage("Tank Missile Oparater" + "\n");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
+        controallerRoom.setTankFule((int)jSpinner1.getValue());
+    }//GEN-LAST:event_jSpinner1StateChanged
+
+    private void jSpinner2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner2StateChanged
+        controallerRoom.setTankAmmo((int)jSpinner2.getValue());
+    }//GEN-LAST:event_jSpinner2StateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

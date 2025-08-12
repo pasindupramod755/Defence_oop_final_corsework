@@ -139,7 +139,7 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
 
     }
 
-    public void soldierCount(int soldier) {
+    public void fuleCount(int soldier) {
 
     }
 
@@ -175,7 +175,12 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        getContentPane().add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+        jSpinner2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinner2StateChanged(evt);
+            }
+        });
+        getContentPane().add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 60, 100, -1));
 
         jButton2.setText("Sonar Oparater");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -193,10 +198,10 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
                 jTextField2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 71, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, 71, -1));
 
         jLabel1.setText("Ammo");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -214,7 +219,7 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, -1));
 
         jLabel2.setText("Fule");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 40, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 40, -1));
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,7 +234,7 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
         jSlider1.setValue(100);
-        getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 90, 71, 290));
+        getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 71, 290));
 
         jButton5.setText("Trident-2 Missile");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -272,7 +277,7 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
                 jSpinner1StateChanged(evt);
             }
         });
-        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 30, 100, -1));
 
         jButton1.setText("Toahawk Missile");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -288,7 +293,7 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
         jSlider2.setPaintLabels(true);
         jSlider2.setPaintTicks(true);
         jSlider2.setValue(100);
-        getContentPane().add(jSlider2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, 71, 290));
+        getContentPane().add(jSlider2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 71, 290));
 
         jTextField4.setEditable(false);
         jTextField4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -298,7 +303,7 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
                 jTextField4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 71, -1));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 71, -1));
 
         jLabel3.setText("Oxygen");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 50, -1));
@@ -308,7 +313,7 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
 
         jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pasindu Bandara\\Desktop\\final project\\FinalProject\\submarine.png")); // NOI18N
         jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 870, 440));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 780, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -361,8 +366,12 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
-        fuleCount = (int)jSpinner1.getValue();
+        controallerRoom.setSubmarineFule((int)jSpinner1.getValue());
     }//GEN-LAST:event_jSpinner1StateChanged
+
+    private void jSpinner2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner2StateChanged
+        controallerRoom.setSubmarineAmmo((int)jSpinner2.getValue());
+    }//GEN-LAST:event_jSpinner2StateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

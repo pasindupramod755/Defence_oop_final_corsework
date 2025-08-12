@@ -1,11 +1,14 @@
 package Demo;
 
 import java.awt.Color;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import javax.swing.JOptionPane;
 
 public class Helicopter extends javax.swing.JFrame implements Contraller {
 
     private ControallerRoom controallerRoom;
+    private int energyLevel = 100;
 
     public Helicopter(ControallerRoom controallerRoom) {
         this.controallerRoom = controallerRoom;
@@ -14,6 +17,7 @@ public class Helicopter extends javax.swing.JFrame implements Contraller {
         jButton1.setEnabled(false);
         jButton2.setEnabled(false);
         jButton3.setEnabled(false);
+        energy();
 
     }
 
@@ -64,13 +68,44 @@ public class Helicopter extends javax.swing.JFrame implements Contraller {
 
     }
 
-    public void soldierCount(int soldier) {
+    public void fuleCount(int soldier) {
         //controallerRoom.soldierCount((int) jSpinner1.getValue());
     }
-    public void buttonMessage(String massage){
-        
+
+    public void buttonMessage(String massage) {
+
     }
-    
+
+    public void energy() {
+        new Thread(() -> {
+            while (true) {
+                jSlider1.setValue(energyLevel--);
+                jTextField2.setText(energyLevel + "%");
+                try {
+                    Thread.sleep(7000);
+                } catch (InterruptedException ex) {
+                }
+                if (energyLevel == 0) {
+//             JOptionPane.showMessageDialog(null, "Submarine has Not avalbel Oxegen", "Error", JOptionPane.ERROR_MESSAGE);
+                    int choice = JOptionPane.showConfirmDialog(
+                            null,
+                            "Helicopter has no Energy left!\nDo you want to refill?",
+                            "Energy Depleted",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.WARNING_MESSAGE
+                    );
+                    if (choice == JOptionPane.YES_OPTION) {
+                        energyLevel = 100;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Helecopter has Left 😐❌", "Left", JOptionPane.ERROR_MESSAGE);
+                        dispose();
+                    }
+                }
+            }
+        }).start();
+
+    }
+
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -100,7 +135,8 @@ public class Helicopter extends javax.swing.JFrame implements Contraller {
         jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
-        getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, 71, 290));
+        jSlider1.setValue(100);
+        getContentPane().add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 71, 290));
 
         jLabel3.setBackground(new java.awt.Color(255, 51, 51));
         jLabel3.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
@@ -138,7 +174,7 @@ public class Helicopter extends javax.swing.JFrame implements Contraller {
                 jTextField2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 50, 71, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 71, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -164,7 +200,19 @@ public class Helicopter extends javax.swing.JFrame implements Contraller {
             }
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 316, 119, -1));
+
+        jSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinner1StateChanged(evt);
+            }
+        });
         getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 52, 65, -1));
+
+        jSpinner2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinner2StateChanged(evt);
+            }
+        });
         getContentPane().add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 80, 65, -1));
 
         jLabel1.setText("Ammo");
@@ -184,7 +232,7 @@ public class Helicopter extends javax.swing.JFrame implements Contraller {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        controallerRoom.buttonMessage("Helicopter Laster Oparation"+"\n");
+        controallerRoom.buttonMessage("Helicopter Laster Oparation" + "\n");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -210,12 +258,20 @@ public class Helicopter extends javax.swing.JFrame implements Contraller {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        controallerRoom.buttonMessage("Helicopter Shoot"+"\n");
+        controallerRoom.buttonMessage("Helicopter Shoot" + "\n");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        controallerRoom.buttonMessage("Helicopter Missile Oparater"+"\n");
+        controallerRoom.buttonMessage("Helicopter Missile Oparater" + "\n");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
+        controallerRoom.setHelicopterFule((int)jSpinner1.getValue());
+    }//GEN-LAST:event_jSpinner1StateChanged
+
+    private void jSpinner2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner2StateChanged
+        controallerRoom.setHelicopterAmmo((int)jSpinner2.getValue());
+    }//GEN-LAST:event_jSpinner2StateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
