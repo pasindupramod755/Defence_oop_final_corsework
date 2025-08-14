@@ -36,12 +36,12 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
                 jSlider2.setValue(oxegenLevel--);
                 jTextField2.setText(oxegenLevel + "%");
                 try {
-                    Thread.sleep(20);
+                    Thread.sleep(2000);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Submarine.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 if (oxegenLevel == 0) {
-                    
+
                     try {
                         File file = new File("arlam.wav");
                         AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
@@ -51,7 +51,7 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    
+
                     int choice = JOptionPane.showConfirmDialog(
                             null,
                             "Submarine has no oxygen left!\nDo you want to refill?",
@@ -84,7 +84,7 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
                     Logger.getLogger(Submarine.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 if (energyLevel == 0) {
-               
+
                     int choice = JOptionPane.showConfirmDialog(
                             null,
                             "Submarine has no Energy left!\nDo you want to refill?",
@@ -341,10 +341,28 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         controallerRoom.buttonMessage("Submarine Trident-2 Missile" + "\n");
+        try {
+            File file = new File("big.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         controallerRoom.buttonMessage("Submarine Toahawk Missile" + "\n");
+        try {
+            File file = new File("missile.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
@@ -376,10 +394,28 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         controallerRoom.buttonMessage("Submarine Shoot" + "\n");
+        try {
+            File file = new File("gun.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         controallerRoom.buttonMessage("Submarine Sonar Oparater" + "\n");
+        try {
+            File file = new File("sonar.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
