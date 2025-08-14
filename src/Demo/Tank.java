@@ -1,6 +1,10 @@
 package Demo;
 
 import java.awt.Color;
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 
 public class Tank extends javax.swing.JFrame implements Contraller {
@@ -254,10 +258,29 @@ public class Tank extends javax.swing.JFrame implements Contraller {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         controallerRoom.buttonMessage("Tank Radar Oparation" + "\n");
+        try {
+            File file = new File("big.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         controallerRoom.buttonMessage("Tank Rotarte Shooting" + "\n");
+        try {
+            File file = new File("rotate.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -284,18 +307,36 @@ public class Tank extends javax.swing.JFrame implements Contraller {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         controallerRoom.buttonMessage("Tank Shoot" + "\n");
+        try {
+            File file = new File("gun.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         controallerRoom.buttonMessage("Tank Missile Oparater" + "\n");
+        try {
+            File file = new File("missiler.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
-        controallerRoom.setTankFule((int)jSpinner1.getValue());
+        controallerRoom.setTankFule((int) jSpinner1.getValue());
     }//GEN-LAST:event_jSpinner1StateChanged
 
     private void jSpinner2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner2StateChanged
-        controallerRoom.setTankAmmo((int)jSpinner2.getValue());
+        controallerRoom.setTankAmmo((int) jSpinner2.getValue());
     }//GEN-LAST:event_jSpinner2StateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
