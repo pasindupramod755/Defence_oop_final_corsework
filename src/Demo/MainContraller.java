@@ -1,5 +1,9 @@
 package Demo;
 
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 
 public class MainContraller extends javax.swing.JFrame implements Contraller {
@@ -177,7 +181,9 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
 
         jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pasindu Bandara\\Desktop\\final project\\FinalProject\\controll Room.png")); // NOI18N
         jLabel5.setText("1");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-480, -120, 1210, 520));
+        jLabel5.setMaximumSize(new java.awt.Dimension(629, 384));
+        jLabel5.setMinimumSize(new java.awt.Dimension(629, 384));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-480, -120, 1140, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -218,6 +224,16 @@ public class MainContraller extends javax.swing.JFrame implements Contraller {
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if (jCheckBox1.isSelected()) {
             controallerRoom.areaClean();
+            try {
+            File file = new File("area.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+            
         } else {
             controallerRoom.areaNotClean();
         }

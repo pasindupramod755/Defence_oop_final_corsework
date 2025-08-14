@@ -1,8 +1,12 @@
 package Demo;
 
 import java.awt.Color;
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 
 public class Submarine extends javax.swing.JFrame implements Contraller {
@@ -12,6 +16,7 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
     private int energyLevel = 100;
     private int fuleCount;
     private int ammoCount;
+    private Clip clip;
 
     public Submarine(ControallerRoom controallerRoom) {
         this.controallerRoom = controallerRoom;
@@ -31,12 +36,22 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
                 jSlider2.setValue(oxegenLevel--);
                 jTextField2.setText(oxegenLevel + "%");
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(20);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Submarine.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 if (oxegenLevel == 0) {
-//             JOptionPane.showMessageDialog(null, "Submarine has Not avalbel Oxegen", "Error", JOptionPane.ERROR_MESSAGE);
+                    
+                    try {
+                        File file = new File("arlam.wav");
+                        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+                        clip = AudioSystem.getClip();
+                        clip.open(audioStream);
+                        clip.start();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    
                     int choice = JOptionPane.showConfirmDialog(
                             null,
                             "Submarine has no oxygen left!\nDo you want to refill?",
@@ -46,7 +61,9 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
                     );
                     if (choice == JOptionPane.YES_OPTION) {
                         oxegenLevel = 100;
+                        clip.stop();
                     } else {
+                        clip.stop();
                         JOptionPane.showMessageDialog(null, "Submarine has Left 😐❌", "Left", JOptionPane.ERROR_MESSAGE);
                         dispose();
                     }
@@ -67,7 +84,7 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
                     Logger.getLogger(Submarine.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 if (energyLevel == 0) {
-//             JOptionPane.showMessageDialog(null, "Submarine has Not avalbel Oxegen", "Error", JOptionPane.ERROR_MESSAGE);
+               
                     int choice = JOptionPane.showConfirmDialog(
                             null,
                             "Submarine has no Energy left!\nDo you want to refill?",
@@ -366,11 +383,11 @@ public class Submarine extends javax.swing.JFrame implements Contraller {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
-        controallerRoom.setSubmarineFule((int)jSpinner1.getValue());
+        controallerRoom.setSubmarineFule((int) jSpinner1.getValue());
     }//GEN-LAST:event_jSpinner1StateChanged
 
     private void jSpinner2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner2StateChanged
-        controallerRoom.setSubmarineAmmo((int)jSpinner2.getValue());
+        controallerRoom.setSubmarineAmmo((int) jSpinner2.getValue());
     }//GEN-LAST:event_jSpinner2StateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
