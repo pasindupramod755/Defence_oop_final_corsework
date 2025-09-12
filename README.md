@@ -1,41 +1,45 @@
-# Defence System
+# 🛡️ Defence System
 
 A **Java Swing simulation** of a multi-vehicle defence control system  
-(**Helicopter, Tank, Submarine**) with a central **Main Controller**.  
+(**🚁 Helicopter, 🚜 Tank, 🚢 Submarine**) with a central **Main Controller**.  
 
-Built with **OOP principles**:  
-- Inheritance  
-- Polymorphism  
-- Encapsulation  
-- Interfaces  
-- Composition  
-
-### Features
-- 🖥️ Swing-based UI for control & monitoring  
-- 🚁🚜🚢 Vehicle types: Helicopter, Tank, Submarine  
-- 📡 Messaging system:  
-  - Public (broadcast) messages  
-  - Private/direct messages  
-  - Media attachments: GIFs + sound files  
-- ⚡ Energy monitoring system  
-- 🌊 Oxygen monitoring system (for submarines)  
-- 🔔 Alerts when energy/oxygen is low  
+Built with **Object-Oriented Programming (OOP)** principles:  
+➡️ Inheritance | ➡️ Polymorphism | ➡️ Encapsulation | ➡️ Interfaces | ➡️ Composition  
 
 ---
 
-## Tech Stack
+![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge)
+![Java](https://img.shields.io/badge/Java-11%2B-blue?style=for-the-badge&logo=java)
+![Swing](https://img.shields.io/badge/GUI-Java%20Swing-orange?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)
+
+---
+
+## ✨ Features
+- 🎨 **User Interface (UI)** built with **Java Swing**  
+- 🚁🚜🚢 **Vehicles**: Helicopter, Tank, Submarine  
+- 💬 **Messaging System**  
+  - 📢 Public (broadcast) messages  
+  - 🔒 Private/direct messages  
+  - 🖼️ GIF attachments  
+  - 🎵 Sound file attachments  
+- ⚡ **Energy Monitoring System**  
+- 🌊 **Oxygen Monitoring System** (Submarine only)  
+- 🔔 **Alerts & Safe Mode** for low energy/oxygen  
+
+---
+
+## 🏗️ Tech Stack
 - **Java 11+**  
 - **Java Swing** (UI)  
-- **OOP concepts**  
+- **OOP Concepts** (Inheritance, Polymorphism, Encapsulation, Interfaces, Composition)  
 
 ---
 
-## How to Run
+
+## 🚀 Getting Started
+
+### 📥 Clone repository
 ```bash
-# Clone repository
 git clone https://github.com/pasindupramod755/defence-system.git
 cd defence-system
-
-# Compile & Run
-javac -d out src/**/*.java
-java -cp out Main
